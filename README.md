@@ -17,68 +17,17 @@ Site web statique pour une ressourcerie, déployable sur GitHub Pages sans serve
 ├── index.html          # Page publique principale
 ├── login.html          # Page de connexion
 ├── admin/
-│   └── index.html      # Page d'administration (accessible via /admin/)
+│   └── index.html      # Page d'administration
 ├── css/
 │   └── styles.css      # Styles CSS
 ├── js/
-│   ├── data.js         # Gestion des données (localStorage + authentification sécurisée)
+│   ├── data.js         # Gestion des données (localStorage)
 │   ├── app.js           # Logique de la page publique
 │   ├── admin.js         # Logique de la page admin
 │   └── login.js         # Logique de la page de connexion
 └── images/
     └── logo.jpeg        # Logo du site
 ```
-
-## 🔐 Authentification
-
-L'accès à l'interface d'administration nécessite une authentification.
-
-### Configuration initiale (Première utilisation)
-
-**IMPORTANT** : Vous devez configurer un mot de passe avant de pouvoir vous connecter.
-
-Ouvrez la console du navigateur (F12) sur la page de connexion et exécutez :
-
-```javascript
-// Configurer le mot de passe initial
-async function setupPassword(password) {
-  const encoder = new TextEncoder();
-  const salt = Array.from(crypto.getRandomValues(new Uint8Array(16)), (b) =>
-    b.toString(16).padStart(2, "0")
-  ).join("");
-  const data = encoder.encode(password + salt);
-  const hashBuffer = await crypto.subtle.digest("SHA-256", data);
-  const hashArray = Array.from(new Uint8Array(hashBuffer));
-  const hash = hashArray.map((b) => b.toString(16).padStart(2, "0")).join("");
-
-  localStorage.setItem("ressourcerie_admin_salt", salt);
-  localStorage.setItem("ressourcerie_admin_password_hash", hash);
-  localStorage.setItem("ressourcerie_admin_user", "admin");
-  console.log(
-    "✅ Mot de passe configuré ! Vous pouvez maintenant vous connecter."
-  );
-}
-
-// Utilisation (remplacez par votre mot de passe)
-await setupPassword("VotreMotDePasseSecurise123!");
-```
-
-### Comment changer vos identifiants
-
-1. **Via l'interface admin (Recommandé)** :
-
-   - Connectez-vous à `/admin/`
-   - Allez dans la section "Paramètres de sécurité"
-   - Entrez votre nouveau identifiant et/ou mot de passe
-   - Cliquez sur "Mettre à jour les paramètres"
-
-2. **Via la console du navigateur** (voir section ci-dessous)
-
-### Sécurité
-
-- ✅ Mots de passe hashés avec SHA-256
-- ✅ Salt unique par mot de passe
-- ✅ Mots de passe jamais stockés en clair
 
 ## ✨ Fonctionnalités
 
