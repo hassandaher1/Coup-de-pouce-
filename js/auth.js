@@ -1,7 +1,7 @@
-// Logique de la page de connexion
+// Authentification
 
 // Vérifier si déjà connecté
-if (AuthManager.isLoggedIn()) {
+if (AuthMgr.isLoggedIn()) {
     window.location.href = '/config/';
 }
 
@@ -14,12 +14,12 @@ function checkPasswordConfigured() {
 
 // Initialiser le formulaire
 document.addEventListener('DOMContentLoaded', function() {
-    const form = document.getElementById('loginForm');
+    const form = document.getElementById('authForm');
     if (!form) return;
 
     // Afficher un message si le mot de passe n'est pas configuré
     if (!checkPasswordConfigured()) {
-        const errorDiv = document.getElementById('loginError');
+        const errorDiv = document.getElementById('authError');
         errorDiv.style.display = 'block';
         errorDiv.innerHTML = '<strong>Configuration requise :</strong> Aucun mot de passe configuré. Veuillez configurer un mot de passe via la console du navigateur (F12) ou consultez le README.md pour les instructions.';
         errorDiv.style.background = '#fef3c7';
@@ -29,7 +29,7 @@ document.addEventListener('DOMContentLoaded', function() {
     form.addEventListener('submit', async function(e) {
         e.preventDefault();
         
-        const errorDiv = document.getElementById('loginError');
+        const errorDiv = document.getElementById('authError');
         errorDiv.style.display = 'none';
         errorDiv.textContent = '';
         errorDiv.style.background = '#fef2f2';
@@ -54,7 +54,7 @@ document.addEventListener('DOMContentLoaded', function() {
         submitBtn.textContent = 'Connexion...';
         
         try {
-            const success = await AuthManager.login(username, password);
+            const success = await AuthMgr.login(username, password);
             if (success) {
                 window.location.href = '/config/';
             } else {

@@ -21,8 +21,8 @@ Site web statique pour une ressourcerie, déployable sur GitHub Pages sans serve
 ├── js/
 │   ├── data.js         # Gestion des données (localStorage)
 │   ├── app.js           # Logique de la page publique
-│   ├── login.js         # Logique de configuration
-│   └── admin.js         # Logique de gestion
+│   ├── auth.js          # Authentification
+│   └── manager.js       # Gestion des produits
 └── images/
     └── logo.jpeg        # Logo du site
 ```

@@ -1,7 +1,7 @@
-// Logique de la page admin
+// Gestion des produits
 
 // Vérifier l'authentification au chargement
-if (!AuthManager.requireAuth()) {
+if (!AuthMgr.requireAuth()) {
     // La redirection est gérée dans requireAuth
 }
 
@@ -175,7 +175,7 @@ function initLogout() {
         logoutBtn.addEventListener('click', function(e) {
             e.preventDefault();
             if (confirm('Êtes-vous sûr de vouloir vous déconnecter ?')) {
-                AuthManager.logout();
+                AuthMgr.logout();
                 window.location.href = '/setup.html';
             }
         });
@@ -186,7 +186,7 @@ function initLogout() {
 function displayCurrentUsername() {
     const currentUsernameEl = document.getElementById('currentUsername');
     if (currentUsernameEl) {
-        const username = localStorage.getItem('r_user') || 'admin';
+        const username = localStorage.getItem('r_user') || 'user';
         currentUsernameEl.textContent = username;
     }
 }
@@ -243,7 +243,7 @@ function initSecurityForm() {
                     return;
                 }
 
-                const result = await AuthManager.changePassword(newPassword);
+                const result = await AuthMgr.changePassword(newPassword);
                 if (result.success) {
                     hasChanges = true;
                     messages.push(result.message);

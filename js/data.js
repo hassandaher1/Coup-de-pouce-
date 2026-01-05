@@ -42,7 +42,7 @@ async function initDefaultData() {
     
     // Configuration utilisateur
     if (!localStorage.getItem(STORAGE_KEYS.ADMIN_USER)) {
-        localStorage.setItem(STORAGE_KEYS.ADMIN_USER, 'admin');
+        localStorage.setItem(STORAGE_KEYS.ADMIN_USER, 'user');
     }
 }
 
