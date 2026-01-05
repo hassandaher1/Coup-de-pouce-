@@ -29,12 +29,9 @@ Site web statique pour une ressourcerie, déployable sur GitHub Pages sans serve
     └── logo.jpeg        # Logo du site
 ```
 
-## 🔐 Identifiants par défaut
+## 🔐 Authentification
 
-**IMPORTANT** : Changez ces identifiants immédiatement après la première connexion !
-
-- **Identifiant** : `admin`
-- **Mot de passe** : `admin123`
+L'accès à l'interface d'administration nécessite une authentification.
 
 ### Comment changer vos identifiants
 
