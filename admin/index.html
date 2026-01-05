@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Admin - Ressourcerie</title>
+    <link rel="icon" type="image/jpeg" href="../images/logo.jpeg">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../css/styles.css">
+</head>
+<body>
+    <nav class="site-header">
+        <div class="site-header__container">
+            <a href="../index.html" class="site-header__logo">
+                <img src="../images/logo.jpeg" alt="Ressourcerie" class="site-header__logo-image" onerror="this.style.display='none'; this.nextElementSibling.style.display='inline';">
+                <span class="site-header__logo-text">Ressourcerie</span>
+            </a>
+            <div class="site-header__actions">
+                <a href="../index.html" class="site-header__link">Voir le site</a>
+                <a href="#" class="site-header__link" id="logoutBtn">Déconnexion</a>
+            </div>
+        </div>
+    </nav>
+
+    <div class="app-shell">
+        <header class="top-hero top-hero--admin">
+            <div class="top-hero__overlay"></div>
+            <div class="top-hero__content">
+                <h1 class="screen-title">Nouvelle publication</h1>
+                <p class="screen-subtitle">Ajoutez rapidement un produit à la ressourcerie.</p>
+            </div>
+        </header>
+
+        <main class="screen screen--with-hero">
+            <div class="dashboard-layout">
+                <section class="card card--elevated card--form">
+                    <form id="productForm" class="form" novalidate>
+                        <div class="form-group">
+                            <label class="label">Photo du produit</label>
+                            <div class="upload-block">
+                                <input type="file" id="productImage" name="image" accept="image/jpeg,image/png,image/jpg" required>
+                                <p class="upload-helper">Formats acceptés : JPG, PNG. Taille conseillée : paysage.</p>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="label" for="imageAlt">Texte alternatif</label>
+                            <input type="text" id="imageAlt" name="image_alt" class="input-text" placeholder="Texte alternatif pour la photo">
+                        </div>
+
+                        <div class="form-group">
+                            <label class="label" for="category">Catégorie</label>
+                            <select id="category" name="category" class="input-select" required>
+                                <option value="maison">Maison</option>
+                                <option value="mode">Mode</option>
+                                <option value="jouet">Jouet</option>
+                                <option value="bricolage">Bricolage</option>
+                                <option value="culture">Culture</option>
+                                <option value="sport">Sport</option>
+                                <option value="meubles">Meubles</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="label" for="title">Titre de la publication</label>
+                            <input type="text" id="title" name="title" class="input-text" placeholder="Titre de la publication" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="label" for="description">Description</label>
+                            <textarea id="description" name="description" class="input-textarea" placeholder="Décrivez le produit, son état, son usage..." rows="4"></textarea>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="label" for="dimensions">Dimensions</label>
+                            <input type="text" id="dimensions" name="dimensions" class="input-text" placeholder="Ex: 120 x 80 x 60 cm">
+                        </div>
+
+                        <div class="form-group form-group--inline">
+                            <label class="label label--inline" for="isPublished">Afficher sur le site public</label>
+                            <input type="checkbox" id="isPublished" name="is_published" checked>
+                        </div>
+
+                        <div id="formError" class="form-error" style="display: none;"></div>
+
+                        <button type="submit" class="btn btn-primary btn-full">Publier le produit</button>
+                    </form>
+                </section>
+
+                <section class="section">
+                    <h2 class="section-title">Dernières publications</h2>
+                    <div class="cards-list" id="latestProducts">
+                        <!-- Les produits seront injectés ici par JavaScript -->
+                    </div>
+                </section>
+
+                <section class="card card--elevated">
+                    <h2 class="section-title">Paramètres de sécurité</h2>
+                    <form id="securityForm" class="form" novalidate>
+                        <div class="form-group">
+                            <label class="label" for="newUsername">Nouvel identifiant</label>
+                            <input type="text" id="newUsername" name="new_username" class="input-text" placeholder="Nouvel identifiant (min. 3 caractères)">
+                            <p class="upload-helper">L'identifiant actuel est : <strong id="currentUsername"></strong></p>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="label" for="newPassword">Nouveau mot de passe</label>
+                            <input type="password" id="newPassword" name="new_password" class="input-text" placeholder="Nouveau mot de passe (min. 8 caractères)">
+                            <p class="upload-helper">Le mot de passe est stocké de façon sécurisée (hashé).</p>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="label" for="confirmPassword">Confirmer le nouveau mot de passe</label>
+                            <input type="password" id="confirmPassword" name="confirm_password" class="input-text" placeholder="Confirmer le nouveau mot de passe">
+                        </div>
+
+                        <div id="securityError" class="form-error" style="display: none;"></div>
+                        <div id="securitySuccess" style="display: none; background: #d1fae5; color: #065f46; border-radius: 12px; padding: 0.6rem 0.8rem; font-size: 0.8rem; margin-bottom: 1rem;"></div>
+
+                        <button type="submit" class="btn btn-primary btn-full">Mettre à jour les paramètres</button>
+                    </form>
+                </section>
+            </div>
+        </main>
+    </div>
+
+    <script src="../js/data.js"></script>
+    <script src="../js/admin.js"></script>
+</body>
+</html>
+

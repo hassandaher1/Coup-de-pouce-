@@ -347,7 +347,8 @@ input[type="text"],
 input[type="search"],
 input[type="password"],
 textarea,
-input[type="file"] {
+input[type="file"],
+.input-text {
     width: 100%;
     border-radius: 999px;
     border: 1px solid #d1d5db;
@@ -358,7 +359,8 @@ input[type="file"] {
     background-color: #ffffff;
 }
 
-textarea {
+textarea,
+.input-textarea {
     border-radius: 16px;
     resize: vertical;
 }
@@ -380,7 +382,9 @@ select,
 }
 
 input:focus,
-textarea:focus {
+textarea:focus,
+.input-text:focus,
+.input-textarea:focus {
     border-color: #00514d;
     box-shadow: 0 0 0 1px rgba(0, 81, 77, 0.15);
 }

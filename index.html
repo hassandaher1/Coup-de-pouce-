@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Ressourcerie - Découvrir les produits</title>
+    <link rel="icon" type="image/jpeg" href="images/logo.jpeg">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <nav class="site-header">
+        <div class="site-header__container">
+            <a href="index.html" class="site-header__logo">
+                <img src="images/logo.jpeg" alt="Ressourcerie" class="site-header__logo-image" onerror="this.style.display='none';">
+                <span class="site-header__logo-text">Ressourcerie</span>
+            </a>
+            <div class="site-header__actions">
+                <a href="tel:0123456789" class="site-header__cta site-header__cta--phone" title="Appeler 01 23 45 67 89">
+                    <svg class="site-header__cta-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+                    </svg>
+                    <span>01 23 45 67 89</span>
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <div class="app-shell">
+        <header class="top-hero top-hero--public">
+            <div class="top-hero__overlay"></div>
+            <div class="top-hero__content">
+                <form method="get" class="search-bar" id="searchForm">
+                    <input
+                        type="search"
+                        name="q"
+                        id="searchInput"
+                        class="search-bar__input"
+                        placeholder="Rechercher un objet, une matière, une catégorie...">
+                    <button type="submit" class="search-bar__button">Rechercher</button>
+                </form>
+                <div class="filters" id="filtersContainer">
+                    <a class="filters__chip filters__chip--ghost filters__chip--active" href="index.html" data-category="">Tout</a>
+                </div>
+            </div>
+        </header>
+
+        <main class="screen screen--with-hero" id="productsContainer">
+            <!-- Les produits seront injectés ici par JavaScript -->
+        </main>
+    </div>
+
+    <footer class="site-footer">
+        <div class="site-footer__container">
+            <div class="site-footer__content">
+                <div class="site-footer__brand">
+                    <h3 class="site-footer__title">Ressourcerie</h3>
+                    <p class="site-footer__text">Objets revalorisés, circuits courts, impact local.</p>
+                </div>
+                <div class="site-footer__links">
+                    <a href="index.html" class="site-footer__link">Accueil</a>
+                    <a href="tel:0123456789" class="site-footer__link">Contact</a>
+                </div>
+            </div>
+            <div class="site-footer__bottom">
+                <p class="site-footer__copy">© <span id="currentYear"></span> Ressourcerie — Reuse & Upcycling</p>
+            </div>
+        </div>
+    </footer>
+
+    <div class="product-modal" id="productModal" aria-hidden="true">
+        <div class="product-modal__backdrop"></div>
+        <div class="product-modal__content">
+            <button class="product-modal__close" type="button" aria-label="Fermer">×</button>
+            <div class="product-modal__image-wrapper">
+                <img id="modalImage" src="" alt="">
+            </div>
+            <div class="product-modal__body">
+                <h2 id="modalTitle"></h2>
+                <p id="modalDimensions" class="card__meta"></p>
+                <p id="modalDescription"></p>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/data.js"></script>
+    <script src="js/app.js"></script>
+</body>
+</html>
+
