@@ -15,36 +15,43 @@ Site web statique pour une ressourcerie, déployable sur GitHub Pages sans serve
 ```
 .
 ├── index.html          # Page publique principale
-├── admin.html          # Page d'administration
 ├── login.html          # Page de connexion
+├── admin/
+│   └── index.html      # Page d'administration (accessible via /admin/)
 ├── css/
 │   └── styles.css      # Styles CSS
 ├── js/
-│   ├── data.js         # Gestion des données (localStorage)
+│   ├── data.js         # Gestion des données (localStorage + authentification sécurisée)
 │   ├── app.js           # Logique de la page publique
 │   ├── admin.js         # Logique de la page admin
 │   └── login.js         # Logique de la page de connexion
-└── images/
-    └── logo.jpeg        # Logo du site
+├── images/
+│   └── logo.jpeg        # Logo du site
+└── SETUP_SECURITY.md    # Guide de configuration sécurisée
 ```
 
 ## 🔐 Identifiants par défaut
 
-**IMPORTANT** : Changez ces identifiants avant de déployer en production !
+**IMPORTANT** : Changez ces identifiants immédiatement après la première connexion !
 
 - **Identifiant** : `admin`
 - **Mot de passe** : `admin123`
 
-Pour changer les identifiants, modifiez les valeurs dans `js/data.js` :
+### Comment changer vos identifiants
 
-```javascript
-if (!localStorage.getItem(STORAGE_KEYS.ADMIN_USER)) {
-    localStorage.setItem(STORAGE_KEYS.ADMIN_USER, 'votre-nouvel-identifiant');
-}
-if (!localStorage.getItem(STORAGE_KEYS.ADMIN_PASSWORD)) {
-    localStorage.setItem(STORAGE_KEYS.ADMIN_PASSWORD, 'votre-nouveau-mot-de-passe');
-}
-```
+1. **Via l'interface admin (Recommandé)** :
+   - Connectez-vous à `/admin/`
+   - Allez dans la section "Paramètres de sécurité"
+   - Entrez votre nouveau identifiant et/ou mot de passe
+   - Cliquez sur "Mettre à jour les paramètres"
+
+2. **Consultez `SETUP_SECURITY.md`** pour plus de détails sur la sécurité
+
+### Sécurité
+
+- ✅ Mots de passe hashés avec SHA-256
+- ✅ Salt unique par mot de passe
+- ✅ Mots de passe jamais stockés en clair
 
 ## ✨ Fonctionnalités
 
@@ -53,9 +60,11 @@ if (!localStorage.getItem(STORAGE_KEYS.ADMIN_PASSWORD)) {
 - ✅ Filtrage par catégorie
 - ✅ Modal de détail des produits
 - ✅ Interface d'administration pour ajouter/supprimer des produits
-- ✅ Authentification simple
+- ✅ Authentification sécurisée (hashage SHA-256 avec salt)
+- ✅ Gestion des identifiants depuis l'interface admin
 - ✅ Stockage des données dans le navigateur (localStorage)
 - ✅ Design responsive mobile-first
+- ✅ URLs propres (/admin/ au lieu de admin.html)
 
 ## 📱 Catégories disponibles
 
