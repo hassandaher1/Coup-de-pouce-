@@ -40,19 +40,15 @@ async function initDefaultData() {
         localStorage.setItem(STORAGE_KEYS.PRODUCTS, JSON.stringify([]));
     }
     
-    // Initialiser les identifiants admin par défaut (à changer en production)
+    // Initialiser les identifiants admin par défaut uniquement s'ils n'existent pas
+    // Le mot de passe doit être configuré manuellement pour la sécurité
     if (!localStorage.getItem(STORAGE_KEYS.ADMIN_USER)) {
         localStorage.setItem(STORAGE_KEYS.ADMIN_USER, 'admin');
     }
     
-    // Si pas de hash de mot de passe, créer un hash du mot de passe par défaut
-    if (!localStorage.getItem(STORAGE_KEYS.ADMIN_PASSWORD_HASH)) {
-        const defaultPassword = 'admin123';
-        const salt = generateSalt();
-        const hash = await hashPassword(defaultPassword, salt);
-        localStorage.setItem(STORAGE_KEYS.ADMIN_SALT, salt);
-        localStorage.setItem(STORAGE_KEYS.ADMIN_PASSWORD_HASH, hash);
-    }
+    // Ne pas initialiser de mot de passe par défaut pour la sécurité
+    // L'utilisateur doit configurer le mot de passe via l'interface admin ou la console
+    // Voir README.md pour les instructions
 }
 
 // Gestion des produits
