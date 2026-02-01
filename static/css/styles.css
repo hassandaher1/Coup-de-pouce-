@@ -306,10 +306,11 @@ body:has(.app-shell--auth) .site-header {
 
 .section {
     margin-top: 1.5rem;
+    margin-bottom: 0.5rem;
 }
 
 .section-title {
-    margin: 0 0 0.75rem 0;
+    margin: 0 0 1rem 0;
     font-size: 1.1rem;
     font-weight: 600;
     color: #111827;
@@ -528,12 +529,37 @@ textarea:focus,
 .cards-grid {
     display: grid;
     grid-template-columns: 1fr;
-    gap: 1rem;
+    gap: 2rem;
+    column-gap: 2rem;
+    row-gap: 2rem;
+    padding: 0.25rem 0;
+}
+
+.cards-grid .card--product {
+    margin: 0;
+    min-width: 0;
+}
+
+.cards-grid .card--product + .card--product {
+    margin-top: 0;
+}
+
+@media (min-width: 600px) {
+    .cards-grid .card--product {
+        margin-left: 1rem;
+        margin-right: 1rem;
+    }
+    .cards-grid .card--product:first-child {
+        margin-left: 0;
+    }
+    .cards-grid .card--product:last-child {
+        margin-right: 0;
+    }
 }
 
 .cards-scroll {
     display: flex;
-    gap: 1rem;
+    gap: 2rem;
     overflow-x: auto;
     overflow-y: hidden;
     -webkit-overflow-scrolling: touch;
@@ -551,7 +577,12 @@ textarea:focus,
 }
 
 .section--category {
+    margin-top: 1.5rem;
     margin-bottom: 2rem;
+}
+
+.section--category:first-child {
+    margin-top: 0;
 }
 
 .card--scroll {
@@ -1009,6 +1040,7 @@ textarea:focus,
 
     .cards-grid {
         grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 2rem;
     }
 
     .screen {
@@ -1053,6 +1085,7 @@ textarea:focus,
 @media (min-width: 900px) {
     .cards-grid {
         grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 2rem;
     }
 
     .screen {
@@ -1098,6 +1131,7 @@ textarea:focus,
 @media (min-width: 1200px) {
     .cards-grid {
         grid-template-columns: repeat(4, minmax(0, 1fr));
+        gap: 2rem;
     }
 
     .screen {
@@ -1174,7 +1208,7 @@ textarea:focus,
 
     .cards-grid {
         grid-template-columns: repeat(5, minmax(0, 1fr));
-        gap: 1.25rem;
+        gap: 2rem;
     }
 }
 

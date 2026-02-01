@@ -3,6 +3,7 @@ from django.db import models
 
 class Product(models.Model):
     CATEGORY_CHOICES = [
+        ("alaune", "À la une"),
         ("maison", "Maison"),
         ("mode", "Mode"),
         ("jouet", "Jouet"),

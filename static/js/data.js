@@ -1,6 +1,7 @@
 // Gestion des données avec localStorage
 
 const CATEGORIES = {
+    alaune: "À la une",
     maison: "Maison",
     mode: "Mode",
     jouet: "Jouet",

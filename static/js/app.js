@@ -49,20 +49,27 @@ function initFilters() {
     if (typeof CATEGORIES === 'undefined') return;
 
     const categories = Object.entries(CATEGORIES);
-    
+    const base = (typeof window.__PRODUCTS__ !== 'undefined') ? (window.location.pathname || '/') : 'index.html';
+
     categories.forEach(([value, label]) => {
+        if (value === 'alaune' || value === '') return;
         const chip = document.createElement('a');
-        chip.href = `?category=${value}${query ? `&q=${encodeURIComponent(query)}` : ''}`;
-        chip.className = `filters__chip ${category === value ? 'filters__chip--active' : ''}`;
+        chip.href = base + (base.indexOf('?') >= 0 ? '&' : '?') + 'category=' + value + (query ? '&q=' + encodeURIComponent(query) : '');
+        chip.className = 'filters__chip ' + (category === value ? 'filters__chip--active' : '');
         chip.textContent = label;
         chip.dataset.category = value;
         filtersContainer.appendChild(chip);
     });
 
+    var alauneChip = filtersContainer.querySelector('[data-category="alaune"]');
+    if (alauneChip) {
+        alauneChip.href = base + (base.indexOf('?') >= 0 ? '&' : '?') + 'category=alaune' + (query ? '&q=' + encodeURIComponent(query) : '');
+        if (category === 'alaune') alauneChip.classList.add('filters__chip--active'); else alauneChip.classList.remove('filters__chip--active');
+    }
+
     // Mettre à jour le lien "Tout"
     const allChip = filtersContainer.querySelector('[data-category=""]');
     if (allChip) {
-        const base = (typeof window.__PRODUCTS__ !== 'undefined') ? (window.location.pathname || '/') : 'index.html';
         allChip.href = query ? base + (base.indexOf('?') >= 0 ? '&' : '?') + 'q=' + encodeURIComponent(query) : base;
         if (!category && !query) {
             allChip.classList.add('filters__chip--active');
