@@ -1,25 +1,26 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Configuration - Ressourcerie</title>
-    <link rel="icon" type="image/jpeg" href="../images/logo.jpeg">
+    <link rel="icon" type="image/jpeg" href="{% static 'images/logo.jpeg' %}">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
 </head>
 <body>
     <nav class="site-header">
         <div class="site-header__container">
-            <a href="../index.html" class="site-header__logo">
-                <img src="../images/logo.jpeg" alt="Ressourcerie" class="site-header__logo-image" onerror="this.style.display='none'; this.nextElementSibling.style.display='inline';">
+            <a href="{% url 'home' %}" class="site-header__logo">
+                <img src="{% static 'images/logo.jpeg' %}" alt="Ressourcerie" class="site-header__logo-image" onerror="this.style.display='none'; this.nextElementSibling.style.display='inline';">
                 <span class="site-header__logo-text">Ressourcerie</span>
             </a>
             <div class="site-header__actions">
-                <a href="../index.html" class="site-header__link">Voir le site</a>
-                <a href="#" class="site-header__link" id="logoutBtn">Déconnexion</a>
+                <a href="{% url 'home' %}" class="site-header__link">Voir le site</a>
+                <a href="{% url 'logout' %}" class="site-header__link" id="logoutBtn">Déconnexion</a>
             </div>
         </div>
     </nav>
@@ -36,7 +37,8 @@
         <main class="screen screen--with-hero">
             <div class="dashboard-layout">
                 <section class="card card--elevated card--form">
-                    <form id="productForm" class="form" novalidate>
+                    <form id="productForm" class="form" novalidate enctype="multipart/form-data">
+                        {% csrf_token %}
                         <div class="form-group">
                             <label class="label">Photo du produit</label>
                             <div class="upload-block">
@@ -99,10 +101,11 @@
                 <section class="card card--elevated">
                     <h2 class="section-title">Paramètres</h2>
                     <form id="securityForm" class="form" novalidate>
+                        {% csrf_token %}
                         <div class="form-group">
                             <label class="label" for="newUsername">Nouvel identifiant</label>
                             <input type="text" id="newUsername" name="new_username" class="input-text" placeholder="Nouvel identifiant (min. 3 caractères)">
-                            <p class="upload-helper">L'identifiant actuel est : <strong id="currentUsername"></strong></p>
+                            <p class="upload-helper">L'identifiant actuel est : <strong id="currentUsername">{{ current_username }}</strong></p>
                         </div>
 
                         <div class="form-group">
@@ -126,8 +129,10 @@
         </main>
     </div>
 
-    <script src="../js/data.js"></script>
-    <script src="../js/manager.js"></script>
+    {{ products_list|json_script:"all-products-data" }}
+    <script>window.__ALL_PRODUCTS__ = document.getElementById('all-products-data') ? JSON.parse(document.getElementById('all-products-data').textContent) : [];</script>
+    <script>window.__CSRF_TOKEN__ = "{{ csrf_token }}";</script>
+    <script src="{% static 'js/data.js' %}"></script>
+    <script src="{% static 'js/manager.js' %}"></script>
 </body>
 </html>
-

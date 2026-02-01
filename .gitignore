@@ -21,3 +21,18 @@ npm-debug.log*
 # Fichiers de sauvegarde
 *.bak
 *.backup
+
+# Python / Django
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+env/
+*.sqlite3
+media/
+
+# Secrets (ne jamais committer)
+.env
+.env.*
+!.env.example
+*.local

@@ -1,0 +1,54 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Configuration - Ressourcerie</title>
+    <link rel="icon" type="image/jpeg" href="{% static 'images/logo.jpeg' %}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+</head>
+<body>
+    <div class="app-shell app-shell--auth">
+        <div class="auth-header-image"></div>
+
+        <main class="auth-container">
+            <section class="auth-card">
+                <h1 class="screen-title">Configuration</h1>
+                <p class="screen-subtitle">Accès à la gestion des produits.</p>
+
+                <form id="authForm" class="form" method="post" action="{% url 'login' %}" novalidate>
+                    {% csrf_token %}
+                    <div id="authError" class="form-error" style="display: {% if form.non_field_errors %}block{% else %}none{% endif %};">
+                        {% for error in form.non_field_errors %}{{ error }}{% endfor %}
+                        {% for field in form %}{% for error in field.errors %}{{ error }}{% endfor %}{% endfor %}
+                    </div>
+
+                    <div class="form-group">
+                        <label class="label" for="id_username">Identifiant</label>
+                        <input type="text" id="id_username" name="username" class="input-text" required value="{{ form.username.value|default:'' }}" autocomplete="username">
+                    </div>
+
+                    <div class="form-group">
+                        <label class="label" for="id_password">Mot de passe</label>
+                        <input type="password" id="id_password" name="password" class="input-text" required autocomplete="current-password">
+                    </div>
+
+                    <input type="hidden" name="next" value="{{ request.GET.next|default:'' }}">
+                    <button type="submit" class="btn btn-primary btn-full">Se connecter</button>
+                </form>
+
+                <p class="auth-helper-text">
+                    Accès réservé aux utilisateurs autorisés.
+                </p>
+            </section>
+        </main>
+    </div>
+
+    <script src="{% static 'js/data.js' %}"></script>
+    <script src="{% static 'js/auth.js' %}"></script>
+</body>
+</html>

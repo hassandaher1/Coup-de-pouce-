@@ -1,8 +1,37 @@
-// Logique de la page publique
+// Logique de la page publique (Django ou static)
 
 const urlParams = new URLSearchParams(window.location.search);
 const query = urlParams.get('q') || '';
 const category = urlParams.get('category') || '';
+
+// Produits : serveur (Django) ou localStorage
+function getPublishedProducts() {
+    if (typeof window.__PRODUCTS__ !== 'undefined') return window.__PRODUCTS__;
+    return ProductManager ? ProductManager.getPublished() : [];
+}
+function getProductsByCategory() {
+    const list = getPublishedProducts();
+    if (typeof window.__PRODUCTS__ !== 'undefined') {
+        const grouped = {};
+        Object.keys(CATEGORIES || {}).forEach(function(catValue) {
+            const catProducts = list.filter(function(p) { return p.category === catValue; }).slice(0, 5);
+            if (catProducts.length > 0) grouped[CATEGORIES[catValue]] = catProducts;
+        });
+        return grouped;
+    }
+    return ProductManager ? ProductManager.getByCategory() : {};
+}
+function searchProducts(q, cat) {
+    let list = getPublishedProducts();
+    if (cat && CATEGORIES && cat in CATEGORIES) list = list.filter(function(p) { return p.category === cat; });
+    if (q && q.trim()) {
+        var term = q.toLowerCase().trim();
+        list = list.filter(function(p) {
+            return (p.title && p.title.toLowerCase().includes(term)) || (p.description && p.description.toLowerCase().includes(term));
+        });
+    }
+    return list;
+}
 
 // Initialiser la page
 document.addEventListener('DOMContentLoaded', function() {
@@ -17,6 +46,7 @@ document.addEventListener('DOMContentLoaded', function() {
 function initFilters() {
     const filtersContainer = document.getElementById('filtersContainer');
     if (!filtersContainer) return;
+    if (typeof CATEGORIES === 'undefined') return;
 
     const categories = Object.entries(CATEGORIES);
     
@@ -32,7 +62,8 @@ function initFilters() {
     // Mettre à jour le lien "Tout"
     const allChip = filtersContainer.querySelector('[data-category=""]');
     if (allChip) {
-        allChip.href = query ? `?q=${encodeURIComponent(query)}` : 'index.html';
+        const base = (typeof window.__PRODUCTS__ !== 'undefined') ? (window.location.pathname || '/') : 'index.html';
+        allChip.href = query ? base + (base.indexOf('?') >= 0 ? '&' : '?') + 'q=' + encodeURIComponent(query) : base;
         if (!category && !query) {
             allChip.classList.add('filters__chip--active');
         } else {
@@ -50,11 +81,9 @@ function renderProducts() {
     let productsByCategory = null;
 
     if (!category && !query) {
-        // Affichage par catégorie
-        productsByCategory = ProductManager.getByCategory();
+        productsByCategory = getProductsByCategory();
     } else {
-        // Affichage filtré
-        products = ProductManager.search(query, category);
+        products = searchProducts(query, category);
     }
 
     container.innerHTML = '';
@@ -246,9 +275,10 @@ function initSearch() {
         searchForm.addEventListener('submit', function(e) {
             e.preventDefault();
             const queryValue = searchInput.value.trim();
-            const categoryParam = category ? `&category=${category}` : '';
-            const queryParam = queryValue ? `?q=${encodeURIComponent(queryValue)}${categoryParam}` : (categoryParam ? `?${categoryParam.substring(1)}` : '');
-            window.location.href = `index.html${queryParam}`;
+            const categoryParam = category ? '&category=' + category : '';
+            const base = (typeof window.__PRODUCTS__ !== 'undefined') ? (window.location.pathname || '/') : 'index.html';
+            const qs = queryValue ? 'q=' + encodeURIComponent(queryValue) + categoryParam : (categoryParam ? categoryParam.slice(1) : '');
+            window.location.href = base + (qs ? (base.indexOf('?') >= 0 ? '&' + qs : '?' + qs) : '');
         });
     }
 }
