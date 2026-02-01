@@ -89,16 +89,24 @@ MEDIA_ROOT = BASE_DIR / "media"
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
-LOGIN_URL = "/setup/"
+AUTHENTICATION_BACKENDS = [
+    "main.backends.CaseInsensitiveAuthBackend",
+    "django.contrib.auth.backends.ModelBackend",
+]
+
+LOGIN_URL = "/admin/login/"
 LOGIN_REDIRECT_URL = "/management/"
 LOGOUT_REDIRECT_URL = "/setup/"
+APP_LOGIN_URL = "/setup/"
 
 SESSION_COOKIE_AGE = 86400 * 7
 SESSION_SAVE_EVERY_REQUEST = True
 SESSION_COOKIE_HTTPONLY = True
 SESSION_COOKIE_SAMESITE = "Lax"
+SESSION_COOKIE_PATH = "/"
 CSRF_COOKIE_HTTPONLY = False
 CSRF_COOKIE_SAMESITE = "Lax"
+CSRF_TRUSTED_ORIGINS = []  # en prod ajouter les origines si besoin
 
 if not DEBUG:
     SECURE_BROWSER_XSS_FILTER = True

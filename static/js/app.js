@@ -79,43 +79,77 @@ function initFilters() {
     }
 }
 
-// Rendre les produits : toujours en grille (max 4 blocs par ligne sur ordinateur)
+// Rendre les produits : en mode "Tout" = une section par catégorie ; sinon grille unique
 function renderProducts() {
     const container = document.getElementById('productsContainer');
     if (!container) return;
 
-    let products;
-    if (!category && !query) {
-        products = getPublishedProducts();
-    } else {
-        products = searchProducts(query, category);
-    }
-
+    const isTout = !category && !query;
     container.innerHTML = '';
 
-    if (products && products.length > 0) {
-        const section = document.createElement('section');
-        section.className = 'section';
-        const title = document.createElement('h2');
-        title.className = 'section-title';
-        title.textContent = !category && !query ? 'Tous les produits' : (category && CATEGORIES && CATEGORIES[category] ? CATEGORIES[category] : 'Résultats');
-        const grid = document.createElement('div');
-        grid.className = 'cards-grid';
-        products.forEach(function(product) {
-            grid.appendChild(createProductCard(product));
+    if (isTout && typeof CATEGORIES !== 'undefined') {
+        // Mode "Tout" : une section par catégorie (Sport, Jouet, Maison, etc.)
+        const list = getPublishedProducts();
+        const byCategory = {};
+        (list || []).forEach(function(p) {
+            var cat = (p && p.category) ? String(p.category).toLowerCase() : '';
+            if (!byCategory[cat]) byCategory[cat] = [];
+            byCategory[cat].push(p);
         });
-        section.appendChild(title);
-        section.appendChild(grid);
-        container.appendChild(section);
+        const categoryOrder = Object.keys(CATEGORIES);
+        var hasAny = false;
+        categoryOrder.forEach(function(catValue) {
+            var products = byCategory[catValue] || [];
+            if (products.length > 0) {
+                hasAny = true;
+                var section = document.createElement('section');
+                section.className = 'section';
+                var title = document.createElement('h2');
+                title.className = 'section-title';
+                title.textContent = CATEGORIES[catValue] || catValue;
+                var grid = document.createElement('div');
+                grid.className = 'cards-grid';
+                products.forEach(function(product) {
+                    grid.appendChild(createProductCard(product));
+                });
+                section.appendChild(title);
+                section.appendChild(grid);
+                container.appendChild(section);
+            }
+        });
+        if (!hasAny) {
+            appendEmptyState(container);
+        }
     } else {
-        const section = document.createElement('section');
-        section.className = 'section';
-        const emptyText = document.createElement('p');
-        emptyText.className = 'empty-state-text';
-        emptyText.textContent = 'Aucun produit n\'est disponible pour le moment.';
-        section.appendChild(emptyText);
-        container.appendChild(section);
+        const products = isTout ? getPublishedProducts() : searchProducts(query, category);
+        if (products && products.length > 0) {
+            const section = document.createElement('section');
+            section.className = 'section';
+            const title = document.createElement('h2');
+            title.className = 'section-title';
+            title.textContent = category && CATEGORIES && CATEGORIES[category] ? CATEGORIES[category] : 'Résultats';
+            const grid = document.createElement('div');
+            grid.className = 'cards-grid';
+            products.forEach(function(product) {
+                grid.appendChild(createProductCard(product));
+            });
+            section.appendChild(title);
+            section.appendChild(grid);
+            container.appendChild(section);
+        } else {
+            appendEmptyState(container);
+        }
     }
+}
+
+function appendEmptyState(container) {
+    const section = document.createElement('section');
+    section.className = 'section';
+    const emptyText = document.createElement('p');
+    emptyText.className = 'empty-state-text';
+    emptyText.textContent = 'Aucun produit n\'est disponible pour le moment.';
+    section.appendChild(emptyText);
+    container.appendChild(section);
 }
 
 // Créer une carte produit (toujours en grille, même dimensions)

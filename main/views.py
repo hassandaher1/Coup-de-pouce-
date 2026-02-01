@@ -1,13 +1,18 @@
 from django.conf import settings
 from django.contrib.auth import authenticate, login, logout, update_session_auth_hash
 from django.contrib.auth.decorators import login_required
+from django.contrib.auth.views import LoginView
 from django.http import JsonResponse, HttpResponse
 from django.shortcuts import render, redirect
 from django.views.decorators.http import require_GET, require_POST, require_http_methods
 from django.views.decorators.csrf import ensure_csrf_cookie
 
+from django.contrib.auth import get_user_model
+
 from .forms import LoginForm
 from .models import Product
+
+User = get_user_model()
 
 
 def _product_to_dict(p):
@@ -36,39 +41,68 @@ def index(request):
     return render(request, "main/index.html", {"products_list": products_list})
 
 
-@require_http_methods(["GET", "POST"])
-def login_view(request):
-    if request.user.is_authenticated:
-        return redirect(settings.LOGIN_REDIRECT_URL)
-    if request.method == "POST":
-        form = LoginForm(request, data=request.POST)
-        if form.is_valid():
-            user = form.get_user()
-            login(request, user)
-            next_url = request.GET.get("next") or settings.LOGIN_REDIRECT_URL
-            return redirect(next_url)
-    else:
-        form = LoginForm()
-    return render(request, "main/setup.html", {"form": form})
+class SetupLoginView(LoginView):
+    """Connexion setup -> management avec la vue officielle Django."""
+    form_class = LoginForm
+    template_name = "main/setup.html"
+    redirect_authenticated_user = True
+
+    def get_success_url(self):
+        return getattr(settings, "LOGIN_REDIRECT_URL", "/management/")
+
+
+def _app_login_url():
+    return getattr(settings, "APP_LOGIN_URL", "/setup/")
 
 
 @require_GET
-@login_required
+def direct_login_view(request):
+    """En mode DEBUG : connexion directe au tableau de bord (utilisateur admin)."""
+    if not settings.DEBUG:
+        return redirect(_app_login_url())
+    user = User.objects.filter(username="admin").first()
+    if not user:
+        user = User.objects.filter(username="demo").first()
+    if user:
+        login(request, user)
+        return redirect(getattr(settings, "LOGIN_REDIRECT_URL", "/management/"))
+    return redirect(_app_login_url())
+
+
+@require_GET
+@login_required(login_url="/setup/")
 def logout_view(request):
     logout(request)
-    return redirect(settings.LOGOUT_REDIRECT_URL)
+    return redirect(getattr(settings, "LOGOUT_REDIRECT_URL", "/setup/"))
 
 
 @require_GET
 def admin_redirect(request):
     if request.user.is_authenticated:
         return redirect("/management/")
-    return redirect(settings.LOGIN_URL)
+    return redirect(_app_login_url())
 
 
 @require_GET
-@login_required
+@login_required(login_url="/setup/")
 def management(request):
+    return _render_management(request, request.user)
+
+
+@require_GET
+def management_dev(request):
+    """En DEBUG : accès direct au tableau de bord sans mot de passe (pour débloquer)."""
+    if not settings.DEBUG:
+        return redirect(_app_login_url())
+    user = User.objects.filter(username="admin").first() or User.objects.filter(username="demo").first()
+    if not user:
+        return redirect(_app_login_url())
+    login(request, user)
+    request.session.save()
+    return redirect("management")
+
+
+def _render_management(request, user):
     products = list(Product.objects.all())
     products_list = [_product_to_dict(p) for p in products]
     return render(
@@ -76,7 +110,7 @@ def management(request):
         "main/management.html",
         {
             "products_list": products_list,
-            "current_username": request.user.username,
+            "current_username": user.username,
         },
     )
 
@@ -117,7 +151,7 @@ def api_products_create(request):
 
 
 @require_POST
-@login_required
+@login_required(login_url="/setup/")
 def api_product_delete(request, pk):
     try:
         product = Product.objects.get(pk=pk)
@@ -128,7 +162,7 @@ def api_product_delete(request, pk):
 
 
 @require_POST
-@login_required
+@login_required(login_url="/setup/")
 def account_settings(request):
     new_username = request.POST.get("new_username", "").strip()
     new_password = request.POST.get("new_password")

@@ -1,0 +1,860 @@
+[
+{
+  "model": "auth.permission",
+  "pk": 1,
+  "fields": {
+    "name": "Can add log entry",
+    "content_type": 1,
+    "codename": "add_logentry"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 2,
+  "fields": {
+    "name": "Can change log entry",
+    "content_type": 1,
+    "codename": "change_logentry"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 3,
+  "fields": {
+    "name": "Can delete log entry",
+    "content_type": 1,
+    "codename": "delete_logentry"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 4,
+  "fields": {
+    "name": "Can view log entry",
+    "content_type": 1,
+    "codename": "view_logentry"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 5,
+  "fields": {
+    "name": "Can add permission",
+    "content_type": 2,
+    "codename": "add_permission"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 6,
+  "fields": {
+    "name": "Can change permission",
+    "content_type": 2,
+    "codename": "change_permission"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 7,
+  "fields": {
+    "name": "Can delete permission",
+    "content_type": 2,
+    "codename": "delete_permission"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 8,
+  "fields": {
+    "name": "Can view permission",
+    "content_type": 2,
+    "codename": "view_permission"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 9,
+  "fields": {
+    "name": "Can add group",
+    "content_type": 3,
+    "codename": "add_group"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 10,
+  "fields": {
+    "name": "Can change group",
+    "content_type": 3,
+    "codename": "change_group"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 11,
+  "fields": {
+    "name": "Can delete group",
+    "content_type": 3,
+    "codename": "delete_group"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 12,
+  "fields": {
+    "name": "Can view group",
+    "content_type": 3,
+    "codename": "view_group"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 13,
+  "fields": {
+    "name": "Can add user",
+    "content_type": 4,
+    "codename": "add_user"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 14,
+  "fields": {
+    "name": "Can change user",
+    "content_type": 4,
+    "codename": "change_user"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 15,
+  "fields": {
+    "name": "Can delete user",
+    "content_type": 4,
+    "codename": "delete_user"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 16,
+  "fields": {
+    "name": "Can view user",
+    "content_type": 4,
+    "codename": "view_user"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 17,
+  "fields": {
+    "name": "Can add content type",
+    "content_type": 5,
+    "codename": "add_contenttype"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 18,
+  "fields": {
+    "name": "Can change content type",
+    "content_type": 5,
+    "codename": "change_contenttype"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 19,
+  "fields": {
+    "name": "Can delete content type",
+    "content_type": 5,
+    "codename": "delete_contenttype"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 20,
+  "fields": {
+    "name": "Can view content type",
+    "content_type": 5,
+    "codename": "view_contenttype"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 21,
+  "fields": {
+    "name": "Can add session",
+    "content_type": 6,
+    "codename": "add_session"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 22,
+  "fields": {
+    "name": "Can change session",
+    "content_type": 6,
+    "codename": "change_session"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 23,
+  "fields": {
+    "name": "Can delete session",
+    "content_type": 6,
+    "codename": "delete_session"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 24,
+  "fields": {
+    "name": "Can view session",
+    "content_type": 6,
+    "codename": "view_session"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 25,
+  "fields": {
+    "name": "Can add product",
+    "content_type": 7,
+    "codename": "add_product"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 26,
+  "fields": {
+    "name": "Can change product",
+    "content_type": 7,
+    "codename": "change_product"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 27,
+  "fields": {
+    "name": "Can delete product",
+    "content_type": 7,
+    "codename": "delete_product"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 28,
+  "fields": {
+    "name": "Can view product",
+    "content_type": 7,
+    "codename": "view_product"
+  }
+},
+{
+  "model": "auth.user",
+  "pk": 5,
+  "fields": {
+    "password": "pbkdf2_sha256$600000$051PiWgQDZsWxVryLeouJJ$4Ikhq4QJx0so7XaJEwpZbIEgYhxgYKQ5HgcHH41MRm0=",
+    "last_login": null,
+    "is_superuser": false,
+    "username": "MrRouxx",
+    "first_name": "Frederic",
+    "last_name": "Roux",
+    "email": "",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2026-02-01T20:52:03Z",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "auth.user",
+  "pk": 6,
+  "fields": {
+    "password": "pbkdf2_sha256$600000$Y1DG9rwTVT7rFD8vofv6n2$iSUg6O0YydxbPXXlNq17CBo0HgXxu28LxW5HS4pjb7M=",
+    "last_login": "2026-02-01T21:05:29.536Z",
+    "is_superuser": true,
+    "username": "hassan",
+    "first_name": "",
+    "last_name": "",
+    "email": "",
+    "is_staff": true,
+    "is_active": true,
+    "date_joined": "2026-02-01T20:58:05.942Z",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "main.product",
+  "pk": 1,
+  "fields": {
+    "title": "Peluches adorables et jeux câlins",
+    "description": "Sur cette photo, une sélection de nos tendres peluches : un adorable lapin rose et blanc coiffé d’un bonnet à carreaux, aux côtés de personnages connus comme Winnie l’Ourson et d’autres compagnons tout doux. Dans la catégorie Jouet, nous recevons toujours des produits variés pour le plaisir des petits et des grands : oursons classiques, animaux de la ferme, héros de dessins animés et créatures fantastiques. Chaque article est choisi pour apporter joie et réconfort.\n\nVisitez nos locaux pour voir ce que nous avons !",
+    "dimensions": "",
+    "category": "jouet",
+    "image": "products/jouet-peluches_L4xHzb5.png",
+    "image_alt": "Pile de peluches, lapin à carreaux et Winnie l'Ourson",
+    "is_published": true,
+    "created_at": "2026-02-01T17:07:48.093Z",
+    "updated_at": "2026-02-01T17:07:48.093Z"
+  }
+},
+{
+  "model": "main.product",
+  "pk": 2,
+  "fields": {
+    "title": "Jeux de société, jouets et loisirs créatifs",
+    "description": "Un coin de notre espace dédié aux jeux et jouets : étagères remplies de jeux de société et puzzles, banc de travail jouet, bac de billes, blocs en bois, jeux de construction et microscopes d’initiation. Dans la catégorie Jouet, nous recevons toujours des produits variés : jeux de société classiques, jeux éducatifs, jouets en bois, jeux de construction, peluches et kits créatifs.\n\nVisitez nos locaux pour voir ce que nous avons !",
+    "dimensions": "",
+    "category": "jouet",
+    "image": "products/jouet-jeux-divers_JesOr2c.png",
+    "image_alt": "Rayon jeux et jouets, jeux de société, billes, jouets en bois",
+    "is_published": true,
+    "created_at": "2026-02-01T17:07:48.128Z",
+    "updated_at": "2026-02-01T17:07:48.128Z"
+  }
+},
+{
+  "model": "main.product",
+  "pk": 3,
+  "fields": {
+    "title": "Jeux et déco de Noël",
+    "description": "Un aperçu de nos tables lors d’un événement : jeux en boîte (Meccano, puzzles…), décorations de Noël, sapin orné de boules rouges, argent et or, guirlandes et petits Pères Noël. Dans la catégorie Jouet, nous recevons toujours des produits pour toute la famille : jeux de construction, puzzles, décorations de fête et idées cadeaux.\n\nVisitez nos locaux pour voir ce que nous avons !",
+    "dimensions": "",
+    "category": "jouet",
+    "image": "products/jouet-noel_nzA1T7t.png",
+    "image_alt": "Événement jeux et déco Noël, sapin et jeux en boîte",
+    "is_published": true,
+    "created_at": "2026-02-01T17:07:48.165Z",
+    "updated_at": "2026-02-01T17:07:48.165Z"
+  }
+},
+{
+  "model": "main.product",
+  "pk": 4,
+  "fields": {
+    "title": "Ustensiles de cuisine et machine à coudre Brother",
+    "description": "Sur cette photo, un pot en céramique blanc garni d’ustensiles de cuisine (fouet, spatule, louche) à côté d’une machine à coudre Brother blanche et bleue. Dans la catégorie Maison, nous recevons toujours des produits pour équiper votre intérieur : ustensiles de cuisine, petit électroménager, machines à coudre et accessoires de couture.\n\nVisitez nos locaux pour voir ce que nous avons !",
+    "dimensions": "",
+    "category": "maison",
+    "image": "products/maison-cuisine-couture_EsXSkOx.png",
+    "image_alt": "Ustensiles de cuisine en pot céramique et machine à coudre Brother",
+    "is_published": true,
+    "created_at": "2026-02-01T17:18:36.784Z",
+    "updated_at": "2026-02-01T17:18:36.784Z"
+  }
+},
+{
+  "model": "main.product",
+  "pk": 5,
+  "fields": {
+    "title": "Décoration de table festive de Noël",
+    "description": "Une table dressée pour les fêtes : pièce maîtresse avec structure blanche, nœud doré et boules rouges, vase avec fleurs artificielles, petit sapin de Noël, gnome décoratif, assiettes et verres à motifs. Dans la catégorie Maison, nous recevons toujours des produits de décoration, arts de la table et accessoires festifs pour égayer vos repas de fin d’année.\n\nVisitez nos locaux pour voir ce que nous avons !",
+    "dimensions": "",
+    "category": "maison",
+    "image": "products/maison-deco-table-noel_91qYNXX.png",
+    "image_alt": "Décoration de table de Noël, centre de table et vaisselle festive",
+    "is_published": true,
+    "created_at": "2026-02-01T17:18:36.831Z",
+    "updated_at": "2026-02-01T17:18:36.831Z"
+  }
+},
+{
+  "model": "main.product",
+  "pk": 6,
+  "fields": {
+    "title": "Électroménager et ustensiles de cuisine",
+    "description": "Un assortiment d’appareils électriques de cuisine : bouilloire blanche, grille-pain inox, robot pâtissier rouge, cafetière, poêle à frire. Dans la catégorie Maison, nous recevons toujours des produits tels que bouilloires, grille-pain, robots, cafetières et ustensiles de cuisson pour équiper votre cuisine.\n\nVisitez nos locaux pour voir ce que nous avons !",
+    "dimensions": "",
+    "category": "maison",
+    "image": "products/maison-electromenager-cuisine_By4fwVH.png",
+    "image_alt": "Bouilloire, grille-pain, robot pâtissier, cafetière et poêle",
+    "is_published": true,
+    "created_at": "2026-02-01T17:18:36.856Z",
+    "updated_at": "2026-02-01T17:18:36.856Z"
+  }
+},
+{
+  "model": "main.product",
+  "pk": 7,
+  "fields": {
+    "title": "Fers à repasser à vapeur et tables à repasser",
+    "description": "Plusieurs fers à vapeur (bleu et blanc, blanc et violet) et des tables à repasser avec housses. Dans la catégorie Maison, nous recevons toujours des produits pour l’entretien du linge : fers à vapeur, tables à repasser et accessoires de repassage.\n\nVisitez nos locaux pour voir ce que nous avons !",
+    "dimensions": "",
+    "category": "maison",
+    "image": "products/maison-fers-repasser_xWAt45e.png",
+    "image_alt": "Fers à repasser à vapeur et tables à repasser",
+    "is_published": true,
+    "created_at": "2026-02-01T17:18:36.894Z",
+    "updated_at": "2026-02-01T17:18:36.894Z"
+  }
+},
+{
+  "model": "main.product",
+  "pk": 8,
+  "fields": {
+    "title": "Assortiment de vaisselle en porcelaine décorée bleue et blanche",
+    "description": "Sur cette photo, un charmant assortiment de vaisselle en porcelaine ou céramique blanche, rehaussé de délicats motifs bleus floraux ou géométriques : théière avec couvercle, tasses à thé et diverses assiettes et bols. Dans la catégorie Maison, nous recevons toujours des produits pour les arts de la table : services à thé et café, assiettes, bols et vaisselle décorée.\n\nVisitez nos locaux pour voir ce que nous avons !",
+    "dimensions": "",
+    "category": "maison",
+    "image": "products/maison-assortiment-vaisselle-decoree_FseqZBt.png",
+    "image_alt": "Vaisselle porcelaine bleue et blanche, théière et tasses",
+    "is_published": true,
+    "created_at": "2026-02-01T17:22:20.459Z",
+    "updated_at": "2026-02-01T17:22:20.459Z"
+  }
+},
+{
+  "model": "main.product",
+  "pk": 9,
+  "fields": {
+    "title": "Set d'assiettes blanches design minimaliste",
+    "description": "Un set d'assiettes empilées, assiettes plates et à dessert, d'un blanc éclatant, design épuré avec bord légèrement surélevé. Dans la catégorie Maison, nous recevons toujours des produits pour la table : sets d'assiettes, vaisselle quotidienne et de fête.\n\nVisitez nos locaux pour voir ce que nous avons !",
+    "dimensions": "",
+    "category": "maison",
+    "image": "products/maison-set-assiettes-minimaliste_UUbnwev.png",
+    "image_alt": "Set d'assiettes blanches minimalistes",
+    "is_published": true,
+    "created_at": "2026-02-01T17:22:20.502Z",
+    "updated_at": "2026-02-01T17:22:20.502Z"
+  }
+},
+{
+  "model": "main.product",
+  "pk": 10,
+  "fields": {
+    "title": "Articles de cuisine et de table",
+    "description": "Une sélection d'articles de cuisine et de table : grand plat de cuisson rectangulaire en céramique blanche, bols profonds, saladier en verre, pot en céramique, maniques en silicone. Dans la catégorie Maison, nous recevons toujours des produits pour la cuisine et le service : plats de cuisson, bols, saladiers et accessoires de cuisine.\n\nVisitez nos locaux pour voir ce que nous avons !",
+    "dimensions": "",
+    "category": "maison",
+    "image": "products/maison-vaisselle-et-autres_r2hNcfh.png",
+    "image_alt": "Plats de cuisson, bols, saladier et accessoires cuisine",
+    "is_published": true,
+    "created_at": "2026-02-01T17:22:20.542Z",
+    "updated_at": "2026-02-01T17:22:20.542Z"
+  }
+},
+{
+  "model": "main.product",
+  "pk": 11,
+  "fields": {
+    "title": "Set d'assiettes blanches à bord ondulé",
+    "description": "Ce set d'assiettes blanches se distingue par son bord élégamment texturé, motif ondulé ou strié subtil. Dans la catégorie Maison, nous recevons toujours des produits d'arts de la table : assiettes à bord travaillé, vaisselle élégante pour le quotidien ou les occasions.\n\nVisitez nos locaux pour voir ce que nous avons !",
+    "dimensions": "",
+    "category": "maison",
+    "image": "products/maison-set-assiettes-ondule_ml9liiN.png",
+    "image_alt": "Assiettes blanches à bord ondulé",
+    "is_published": true,
+    "created_at": "2026-02-01T17:22:20.579Z",
+    "updated_at": "2026-02-01T17:22:20.579Z"
+  }
+},
+{
+  "model": "main.product",
+  "pk": 12,
+  "fields": {
+    "title": "Verres transparents à cannelures vintage",
+    "description": "Un ensemble de verres à boire transparents, à texture striée ou cannelée verticale, aspect classique et intemporel. Dans la catégorie Maison, nous recevons toujours des produits de verrerie : verres à eau, à jus, verres décorés et verres à motif vintage.\n\nVisitez nos locaux pour voir ce que nous avons !",
+    "dimensions": "",
+    "category": "maison",
+    "image": "products/maison-verres-cannelures_MgvJcUF.png",
+    "image_alt": "Verres transparents à cannelures",
+    "is_published": true,
+    "created_at": "2026-02-01T17:22:20.628Z",
+    "updated_at": "2026-02-01T17:22:20.628Z"
+  }
+},
+{
+  "model": "main.product",
+  "pk": 13,
+  "fields": {
+    "title": "Set d'assiettes blanches à bord gris anthracite",
+    "description": "Ces assiettes blanches présentent un design moderne avec un bord distinctif gris foncé ou anthracite. Le contraste crée un effet contemporain. Dans la catégorie Maison, nous recevons toujours des produits de vaisselle moderne : assiettes à bord contrastant, arts de la table épurés.\n\nVisitez nos locaux pour voir ce que nous avons !",
+    "dimensions": "",
+    "category": "maison",
+    "image": "products/maison-set-assiettes-bord-gris_nRrkltW.png",
+    "image_alt": "Assiettes blanches à bord gris anthracite",
+    "is_published": true,
+    "created_at": "2026-02-01T17:22:20.658Z",
+    "updated_at": "2026-02-01T17:22:20.658Z"
+  }
+},
+{
+  "model": "main.product",
+  "pk": 14,
+  "fields": {
+    "title": "Équipement de ski d'occasion",
+    "description": "Skis alpins, bâtons et chaussures de ski en bon état : skis Rossignol, Völkl, Fischer, Elan avec fixations Tyrolia, chaussures de ski jaunes, noires et blanches, bâtons en aluminium. Dans la catégorie Sport, nous recevons toujours du matériel de ski et de glisse pour toute la famille.\n\nVisitez nos locaux pour voir ce que nous avons !",
+    "dimensions": "",
+    "category": "sport",
+    "image": "products/sport-equipement-ski_DRXSiXk.png",
+    "image_alt": "Skis, bâtons et chaussures de ski dans un rangement en bois",
+    "is_published": true,
+    "created_at": "2026-02-01T17:26:37.606Z",
+    "updated_at": "2026-02-01T17:26:37.606Z"
+  }
+},
+{
+  "model": "main.product",
+  "pk": 15,
+  "fields": {
+    "title": "Vue d'ensemble du magasin",
+    "description": "Un aperçu de notre espace : vaisselle et arts de la table, décorations festives, petits électroménagers et articles de cuisine, le tout présenté sur nos étagères et tables. Venez découvrir notre sélection d'articles d'occasion soigneusement triés pour la maison et le quotidien.\n\nVisitez nos locaux pour voir ce que nous avons !",
+    "dimensions": "",
+    "category": "alaune",
+    "image": "products/maison-vue-magasin_fLdIHY1.png",
+    "image_alt": "Vue d'ensemble du magasin, rayons et présentations",
+    "is_published": true,
+    "created_at": "2026-02-01T17:26:37.634Z",
+    "updated_at": "2026-02-01T17:26:37.634Z"
+  }
+},
+{
+  "model": "main.product",
+  "pk": 16,
+  "fields": {
+    "title": "Bijoux et accessoires au comptoir",
+    "description": "Colliers, bracelets, boucles d'oreilles et accessoires de mode : étuis téléphone, portefeuilles, petites maroquineries, vêtements et sacs. Une sélection pour compléter votre look à petits prix.\n\nVisitez nos locaux pour voir ce que nous avons !",
+    "dimensions": "",
+    "category": "mode",
+    "image": "products/mode-comptoir-accessoires_58GhBOp.png",
+    "image_alt": "Comptoir bijoux, accessoires et vêtements",
+    "is_published": true,
+    "created_at": "2026-02-01T17:26:37.662Z",
+    "updated_at": "2026-02-01T17:26:37.662Z"
+  }
+},
+{
+  "model": "main.product",
+  "pk": 17,
+  "fields": {
+    "title": "Accordéon et objets de musique",
+    "description": "Un accordéon noir à touches blanches dans son étui velours bleu, posé sur une table parmi une soupière en céramique blanc et bleu à motifs, un moulin à café vintage, un buste en bois et des objets de décoration. Dans la catégorie Culture, nous recevons toujours des instruments de musique, de la vaisselle de collection et des objets d'art.\n\nVisitez nos locaux pour voir ce que nous avons !",
+    "dimensions": "",
+    "category": "culture",
+    "image": "products/culture-accordion-objets-musique_c1vho7z.png",
+    "image_alt": "Accordéon dans son étui, soupière et objets de collection",
+    "is_published": true,
+    "created_at": "2026-02-01T17:28:40.508Z",
+    "updated_at": "2026-02-01T17:28:40.508Z"
+  }
+},
+{
+  "model": "main.product",
+  "pk": 18,
+  "fields": {
+    "title": "Piano droit ancien et guitare",
+    "description": "Un piano droit ancien en bois sombre à la finition soignée, clavier ouvert, avec une guitare acoustique Cort sur support, un abat-jour crème, des figurines (chien en céramique, vase cloisonné) et des tableaux au mur. Idéal pour les amateurs de musique et de décoration vintage.\n\nVisitez nos locaux pour voir ce que nous avons !",
+    "dimensions": "",
+    "category": "culture",
+    "image": "products/culture-piano-guitare_p4I4bxd.png",
+    "image_alt": "Piano droit ancien et guitare avec décorations",
+    "is_published": true,
+    "created_at": "2026-02-01T17:28:40.557Z",
+    "updated_at": "2026-02-01T17:28:40.557Z"
+  }
+},
+{
+  "model": "main.product",
+  "pk": 19,
+  "fields": {
+    "title": "Piano droit ancien et armoire",
+    "description": "Piano droit ancien (P. Bord) en bois sculpté, pupitre avec ouvrages « L'art du piano », armoire ancienne à panneaux sculptés, vase décoratif, figurines et coussin brodé. Dans la catégorie Culture et Meubles, nous proposons des instruments et du mobilier de caractère pour une ambiance vintage.\n\nVisitez nos locaux pour voir ce que nous avons !",
+    "dimensions": "",
+    "category": "culture",
+    "image": "products/culture-piano-meuble_Jko4YzY.png",
+    "image_alt": "Piano droit P. Bord et armoire ancienne",
+    "is_published": true,
+    "created_at": "2026-02-01T17:28:40.600Z",
+    "updated_at": "2026-02-01T17:28:40.600Z"
+  }
+},
+{
+  "model": "main.product",
+  "pk": 20,
+  "fields": {
+    "title": "Robe blanche brodée bordeaux",
+    "description": "Robe de soirée ou de mariage en blanc et crème, broderie bordeaux sur le buste et la jupe, décolleté off-shoulder, jupe longue volumineuse à ourlet festonné. Présentée sur mannequin. Dans la catégorie Mode, nous recevons toujours des vêtements de cérémonie et tenues de seconde main.\n\nVisitez nos locaux pour voir ce que nous avons !",
+    "dimensions": "",
+    "category": "mode",
+    "image": "products/mode-robe-blanche-brodee_Uo6Fwk8.png",
+    "image_alt": "Robe blanche brodée bordeaux sur mannequin",
+    "is_published": true,
+    "created_at": "2026-02-01T17:30:32.322Z",
+    "updated_at": "2026-02-01T17:30:32.322Z"
+  }
+},
+{
+  "model": "main.product",
+  "pk": 21,
+  "fields": {
+    "title": "Chaussures et bottes d'occasion",
+    "description": "Rayon chaussures : bottines, ballerines, escarpins, bottes d'hiver à fourrure, escarpins bleus, baskets, sandales et modèles variés sur étagères. Prix affichés en magasin. Dans la catégorie Mode, nous proposons une large sélection de chaussures pour toute la famille.\n\nVisitez nos locaux pour voir ce que nous avons !",
+    "dimensions": "",
+    "category": "mode",
+    "image": "products/mode-chaussures-etageres_7iqr6cL.png",
+    "image_alt": "Étagères de chaussures et bottes",
+    "is_published": true,
+    "created_at": "2026-02-01T17:30:32.359Z",
+    "updated_at": "2026-02-01T17:30:32.359Z"
+  }
+},
+{
+  "model": "main.product",
+  "pk": 22,
+  "fields": {
+    "title": "Linge de lit, nappes et tissus",
+    "description": "Linge de lit plié, draps, parures, nappes (dont Tiffany), tissus colorés, dentelle, couvertures et chutes de tissu. De quoi équiper la maison ou réaliser des créations. Dans la catégorie Maison, nous recevons toujours du linge de maison et des tissus.\n\nVisitez nos locaux pour voir ce que nous avons !",
+    "dimensions": "",
+    "category": "maison",
+    "image": "products/maison-linge-lit-tissus_hOmcQdK.png",
+    "image_alt": "Étagères de linge de lit et tissus",
+    "is_published": true,
+    "created_at": "2026-02-01T17:30:32.456Z",
+    "updated_at": "2026-02-01T17:30:32.456Z"
+  }
+},
+{
+  "model": "main.product",
+  "pk": 23,
+  "fields": {
+    "title": "Vêtements et dentelles",
+    "description": "Portant rempli de vêtements : dentelles blanches, robes jaune, rouge et violet, pièces dorées et orangées, étagère à petits objets et tableaux. Une sélection mode et déco pour tous les goûts. Dans la catégorie Mode et Maison, nous proposons vêtements d'occasion et curiosités.\n\nVisitez nos locaux pour voir ce que nous avons !",
+    "dimensions": "",
+    "category": "mode",
+    "image": "products/mode-vetements-dentelles_AA4bh1h.png",
+    "image_alt": "Portant vêtements et dentelles, étagère à bibelots",
+    "is_published": true,
+    "created_at": "2026-02-01T17:30:32.531Z",
+    "updated_at": "2026-02-01T17:30:32.531Z"
+  }
+},
+{
+  "model": "main.product",
+  "pk": 24,
+  "fields": {
+    "title": "Salon bleu : canapé, fauteuils et table basse",
+    "description": "Ensemble salon style Louis XV : canapé trois places et deux fauteuils en velours bleu à motifs, cadres en bois sculpté sombre, table basse en bois à plateau verre, service à thé porcelaine blanche à filet or, bougeoirs bleu turquoise, poufs velours bleu à clous. Dans la catégorie Meubles, nous proposons des canapés et fauteuils d'occasion.\n\nVisitez nos locaux pour voir ce que nous avons !",
+    "dimensions": "",
+    "category": "meubles",
+    "image": "products/meubles-salon-bleu-assortiment_RuZu9ZS.png",
+    "image_alt": "Canapé et fauteuils bleus, table basse et déco",
+    "is_published": true,
+    "created_at": "2026-02-01T17:32:02.522Z",
+    "updated_at": "2026-02-01T17:32:02.522Z"
+  }
+},
+{
+  "model": "main.product",
+  "pk": 25,
+  "fields": {
+    "title": "Vue magasin : espace meubles et salon",
+    "description": "Vue d'ensemble de notre espace : salon bleu, service à thé, lampes, vase aux tulipes, robe sur mannequin, étagères et luminaires. Un aperçu de la diversité de nos meubles et objets.\n\nVisitez nos locaux pour voir ce que nous avons !",
+    "dimensions": "",
+    "category": "alaune",
+    "image": "products/alaune-vue-meubles-salon_LrkAMiU.png",
+    "image_alt": "Vue magasin espace meubles et salon",
+    "is_published": true,
+    "created_at": "2026-02-01T17:32:02.596Z",
+    "updated_at": "2026-02-01T17:32:02.596Z"
+  }
+},
+{
+  "model": "main.product",
+  "pk": 26,
+  "fields": {
+    "title": "Téléviseurs et écrans plats d'occasion",
+    "description": "Téléviseur LG grand format et petit écran plat noir, en vitrine parmi vaisselle et verrerie. Idéaux pour le salon ou une chambre. Dans la catégorie Maison, nous recevons des téléviseurs et petits électroménagers en bon état.\n\nVisitez nos locaux pour voir ce que nous avons !",
+    "dimensions": "",
+    "category": "maison",
+    "image": "products/maison-televiseurs-lg_BSD6S6N.png",
+    "image_alt": "Deux téléviseurs plats noirs en vitrine",
+    "is_published": true,
+    "created_at": "2026-02-01T17:32:02.657Z",
+    "updated_at": "2026-02-01T17:32:02.657Z"
+  }
+},
+{
+  "model": "main.product",
+  "pk": 27,
+  "fields": {
+    "title": "Fauteuils et canapé bleus (détail)",
+    "description": "Canapé et fauteuils en velours bleu à motifs, bois sculpté, guéridon avec tasses bleues, tableau de lavande, peluche tricotée, peinture classique. Salon vintage en excellent état.\n\nVisitez nos locaux pour voir ce que nous avons !",
+    "dimensions": "",
+    "category": "meubles",
+    "image": "products/meubles-fauteuils-bleus-detail_uuQDbYD.png",
+    "image_alt": "Fauteuils bleus, guéridon et déco",
+    "is_published": true,
+    "created_at": "2026-02-01T17:32:02.703Z",
+    "updated_at": "2026-02-01T17:32:02.703Z"
+  }
+},
+{
+  "model": "main.product",
+  "pk": 28,
+  "fields": {
+    "title": "Bureaux, lampes et objets décoratifs",
+    "description": "Grands bureaux en bois, table console, lampes vintage, bols mosaïque, tasses céramique, vase ambre, figurines, bibliothèque et buffet ancien. Une sélection meubles et déco.\n\nVisitez nos locaux pour voir ce que nous avons !",
+    "dimensions": "",
+    "category": "meubles",
+    "image": "products/meubles-vue-divers-bureaux_jVxKiy4.png",
+    "image_alt": "Bureaux, étagères et objets décoratifs",
+    "is_published": true,
+    "created_at": "2026-02-01T17:32:02.751Z",
+    "updated_at": "2026-02-01T17:32:02.751Z"
+  }
+},
+{
+  "model": "main.product",
+  "pk": 29,
+  "fields": {
+    "title": "Salon avec tables basses verre et déco",
+    "description": "Tables basses en verre et chrome, plat céramique floral, service à thé blanc et or, lampe noire, vase aux tulipes, canapé et fauteuils bleus, lustre cristal. Salon complet.\n\nVisitez nos locaux pour voir ce que nous avons !",
+    "dimensions": "",
+    "category": "meubles",
+    "image": "products/meubles-salon-tables-verre_5hXuTns.png",
+    "image_alt": "Salon tables verre, vaisselle et canapé bleu",
+    "is_published": true,
+    "created_at": "2026-02-01T17:32:02.783Z",
+    "updated_at": "2026-02-01T17:32:02.783Z"
+  }
+},
+{
+  "model": "main.product",
+  "pk": 30,
+  "fields": {
+    "title": "Fauteuil bleu et tableau classique",
+    "description": "Fauteuil ancien velours bleu-gris à motifs, bois sculpté et clous décoratifs, avec un grand tableau classique : scène pastorale, bouquet de fleurs. Idéal pour les amateurs de meubles et d'art.\n\nVisitez nos locaux pour voir ce que nous avons !",
+    "dimensions": "",
+    "category": "meubles",
+    "image": "products/meubles-fauteuil-bleu-tableau_GpHr8ab.png",
+    "image_alt": "Fauteuil bleu et tableau scène pastorale",
+    "is_published": true,
+    "created_at": "2026-02-01T17:32:02.831Z",
+    "updated_at": "2026-02-01T17:32:02.831Z"
+  }
+},
+{
+  "model": "main.product",
+  "pk": 31,
+  "fields": {
+    "title": "Lit enfant et doudous",
+    "description": "Lit à barreaux en bois clair garni de peluches : Hello Kitty, gros ours marron, petit ours en pyjama rose, sac de couchage thème hiboux « Hou Ou ! ». Dans la catégorie Jouet, nous avons toujours des doudous et du matériel enfant.\n\nVisitez nos locaux pour voir ce que nous avons !",
+    "dimensions": "",
+    "category": "jouet",
+    "image": "products/jouet-lit-enfant-doudous_92AvtXP.png",
+    "image_alt": "Lit enfant avec peluches et sac de couchage",
+    "is_published": true,
+    "created_at": "2026-02-01T17:32:02.875Z",
+    "updated_at": "2026-02-01T17:32:02.875Z"
+  }
+},
+{
+  "model": "main.product",
+  "pk": 32,
+  "fields": {
+    "title": "Canapé bleu et luminaires",
+    "description": "Salon bleu damas, chandeliers noirs aux bougies bleues, tasses noires et service blanc et or, robe brodée sur mannequin en fond. Ambiance salon et décoration.\n\nVisitez nos locaux pour voir ce que nous avons !",
+    "dimensions": "",
+    "category": "meubles",
+    "image": "products/meubles-canape-bleu-luminaires_IuhYw3r.png",
+    "image_alt": "Canapé bleu, chandeliers et vaisselle",
+    "is_published": true,
+    "created_at": "2026-02-01T17:32:02.916Z",
+    "updated_at": "2026-02-01T17:32:02.916Z"
+  }
+},
+{
+  "model": "main.product",
+  "pk": 33,
+  "fields": {
+    "title": "Coin vinyles et promo 33 tours",
+    "description": "Rayon Culture : présentoir à vinyles 33 tours, promo « 3 x 33t = 1€ ». Étagères livres, CDs, DVDs, mangas, BD, livres de poche. Lecture et musique au même endroit.\n\nVisitez nos locaux pour voir ce que nous avons !",
+    "dimensions": "",
+    "category": "culture",
+    "image": "products/culture-coin-vinyles_ZrBwxv3.png",
+    "image_alt": "Rayon vinyles et livres, promo 33t",
+    "is_published": true,
+    "created_at": "2026-02-01T17:34:03.789Z",
+    "updated_at": "2026-02-01T17:34:03.789Z"
+  }
+},
+{
+  "model": "main.product",
+  "pk": 34,
+  "fields": {
+    "title": "Livres santé, bien-être et société",
+    "description": "Rayon livres : santé et bien-être (Réussir le diplôme infirmier, Longuevie, herbier beauté), politique et société (Pape François), romans (Trauma, Les liens du passé), loisirs créatifs. Une sélection variée en bon état.\n\nVisitez nos locaux pour voir ce que nous avons !",
+    "dimensions": "",
+    "category": "culture",
+    "image": "products/culture-livres-sante-bien-etre_YvRt9Wp.png",
+    "image_alt": "Étagères livres santé, bien-être et romans",
+    "is_published": true,
+    "created_at": "2026-02-01T17:34:03.821Z",
+    "updated_at": "2026-02-01T17:34:03.821Z"
+  }
+},
+{
+  "model": "main.product",
+  "pk": 35,
+  "fields": {
+    "title": "BD Marsupilami : Sur la piste du Marsupilami",
+    "description": "Bande dessinée « Sur la piste du Marsupilami » (Franquin, Batem & Colman, Chabat). Aventures du Marsupilami dans la jungle de Palombia. BD colorée et pleine d'humour, idéale pour petits et grands.\n\nVisitez nos locaux pour voir ce que nous avons !",
+    "dimensions": "",
+    "category": "culture",
+    "image": "products/culture-bd-marsupilami_NMluRSv.png",
+    "image_alt": "Couverture BD Marsupilami Sur la piste",
+    "is_published": true,
+    "created_at": "2026-02-01T17:34:03.882Z",
+    "updated_at": "2026-02-01T17:34:03.882Z"
+  }
+},
+{
+  "model": "main.product",
+  "pk": 36,
+  "fields": {
+    "title": "Livres jeunesse et BD",
+    "description": "Rayon livres pour enfants et BD : Tortues Ninja, T'choupi, Pop Corn, Dokko, albums illustrés. Étagères en L bien remplies, livres de poche et albums. Idéal pour compléter une bibliothèque jeunesse.\n\nVisitez nos locaux pour voir ce que nous avons !",
+    "dimensions": "",
+    "category": "culture",
+    "image": "products/culture-livres-jeunesse-bd_JAa2dFK.png",
+    "image_alt": "Rayon livres jeunesse et bandes dessinées",
+    "is_published": true,
+    "created_at": "2026-02-01T17:34:03.927Z",
+    "updated_at": "2026-02-01T17:34:03.927Z"
+  }
+},
+{
+  "model": "main.product",
+  "pk": 37,
+  "fields": {
+    "title": "Romans et livres d'occasion",
+    "description": "Grand choix de romans et littérature d'occasion : Mary Higgins Clark, Juliette Benzoni, Louis Bayard, Georges Coulonges, Jeanne Bourin… Romans policiers, historiques et contemporains en bon état.\n\nVisitez nos locaux pour voir ce que nous avons !",
+    "dimensions": "",
+    "category": "culture",
+    "image": "products/culture-romans-occasion_CWCPzAn.png",
+    "image_alt": "Étagère de romans et livres d'occasion",
+    "is_published": true,
+    "created_at": "2026-02-01T17:34:04.015Z",
+    "updated_at": "2026-02-01T17:34:04.018Z"
+  }
+},
+{
+  "model": "main.product",
+  "pk": 38,
+  "fields": {
+    "title": "Vue d'ensemble rayon Culture",
+    "description": "Vue d'ensemble de notre espace Culture : livres, BD, guides (dont Jeune mère), sections ENFANT ACTIVITÉS et BD. Romans, jeunesse et bandes dessinées pour toute la famille.\n\nVisitez nos locaux pour voir ce que nous avons !",
+    "dimensions": "",
+    "category": "culture",
+    "image": "products/culture-ensemble-rayon-livres_IqpCIgp.png",
+    "image_alt": "Vue d'ensemble du rayon livres et Culture",
+    "is_published": true,
+    "created_at": "2026-02-01T17:34:04.089Z",
+    "updated_at": "2026-02-01T17:34:04.089Z"
+  }
+}
+]
